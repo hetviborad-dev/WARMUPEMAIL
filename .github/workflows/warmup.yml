@@ -1,0 +1,51 @@
+name: Email Warm-up
+
+on:
+  schedule:
+    # Run every 5 minutes
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+
+jobs:
+  warmup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run email warm-up
+        env:
+          EMAIL_PASS_1: ${{ secrets.EMAIL_PASS_1 }}
+          EMAIL_PASS_2: ${{ secrets.EMAIL_PASS_2 }}
+          EMAIL_PASS_3: ${{ secrets.EMAIL_PASS_3 }}
+        run: npm start
+
+      - name: Configure git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Commit state.json
+        if: always()
+        run: |
+          if [ -f state.json ]; then
+            git add state.json
+            git commit -m "🤖 Update email state [skip ci]" || echo "No changes to commit"
+            git push
+          fi
+
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: warmup-logs-${{ github.run_id }}
+          retention-days: 7

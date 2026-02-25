@@ -1,0 +1,30 @@
+{
+  "accounts": [
+    {
+      "id": "account1",
+      "email": "hetvi.borad.bussiness@gmail.com",
+      "passEnv": "EMAIL_PASS_1",
+      "displayName": "Hetvi Borad"
+    },
+    {
+      "id": "account2",
+      "email": "hetvi0476@gmail.com",
+      "passEnv": "EMAIL_PASS_2",
+      "displayName": "Hetvi"
+    }
+  ],
+  "flows": [
+    {
+      "sender": "account1",
+      "receiver": "account2",
+      "subject": "Quick follow-up on our conversation",
+      "message": "Hi Hetvi,\n\nJust wanted to follow up on our previous conversation. Let me know if you have any questions.\n\nBest regards,\nHetvi Borad"
+    },
+    {
+      "sender": "account2",
+      "receiver": "account1",
+      "subject": "Checking in - wanted to update you",
+      "message": "Hello,\n\nI hope this email finds you well. I wanted to check in and see how things are progressing.\n\nLooking forward to hearing from you.\n\nBest,\nHetvi"
+    }
+  ]
+}

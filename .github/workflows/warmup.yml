@@ -46,10 +46,3 @@ jobs:
             git commit -m "🤖 Update email state [skip ci]" || echo "No changes to commit"
             git push origin main
           fi
-
-      - name: Upload logs
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: warmup-logs-${{ github.run_id }}
-          retention-days: 7

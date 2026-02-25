@@ -14,17 +14,65 @@
     }
   ],
   "flows": [
-    {
-      "sender": "account1",
-      "receiver": "account2",
-      "subject": "Quick follow-up on our conversation",
-      "message": "Hi Hetvi,\n\nJust wanted to follow up on our previous conversation. Let me know if you have any questions.\n\nBest regards,\nHetvi Borad"
-    },
-    {
-      "sender": "account2",
-      "receiver": "account1",
-      "subject": "Checking in - wanted to update you",
-      "message": "Hello,\n\nI hope this email finds you well. I wanted to check in and see how things are progressing.\n\nLooking forward to hearing from you.\n\nBest,\nHetvi"
-    }
-  ]
+  {
+    "sender": "account1",
+    "receiver": "account2",
+    "subject": "Quick follow-up on our conversation",
+    "message": "Hi Hetvi,\n\nJust wanted to follow up on our previous conversation. Let me know if you have any questions.\n\nBest regards,\nHetvi Borad"
+  },
+  {
+    "sender": "account2",
+    "receiver": "account1",
+    "subject": "Checking in - wanted to update you",
+    "message": "Hello,\n\nI hope you're doing well. Just checking in to see how things are progressing.\n\nBest,\nHetvi"
+  },
+  {
+    "sender": "account1",
+    "receiver": "account2",
+    "subject": "Quick question",
+    "message": "Hi,\n\nI had a quick question regarding our last discussion. When you get a moment, please share your thoughts.\n\nThanks,\nHetvi Borad"
+  },
+  {
+    "sender": "account2",
+    "receiver": "account1",
+    "subject": "Sharing a small update",
+    "message": "Hello,\n\nJust wanted to share a small update from my side. Everything is moving as planned.\n\nRegards,\nHetvi"
+  },
+  {
+    "sender": "account1",
+    "receiver": "account2",
+    "subject": "Thanks for your time",
+    "message": "Hi,\n\nThank you for your time earlier. I really appreciate the discussion.\n\nBest,\nHetvi Borad"
+  },
+  {
+    "sender": "account2",
+    "receiver": "account1",
+    "subject": "Following up again",
+    "message": "Hello,\n\nJust following up to make sure everything is clear. Let me know if anything is pending from my side.\n\nBest,\nHetvi"
+  },
+  {
+    "sender": "account1",
+    "receiver": "account2",
+    "subject": "Just checking something quickly",
+    "message": "Hi,\n\nQuick check from my side — everything looks good here. Please confirm when free.\n\nThanks,\nHetvi Borad"
+  },
+  {
+    "sender": "account2",
+    "receiver": "account1",
+    "subject": "Hope everything is going well",
+    "message": "Hello,\n\nHope everything is going well on your end. Looking forward to staying connected.\n\nBest,\nHetvi"
+  },
+  {
+    "sender": "account1",
+    "receiver": "account2",
+    "subject": "Appreciate your support",
+    "message": "Hi,\n\nI appreciate your continued support. Let’s keep in touch.\n\nWarm regards,\nHetvi Borad"
+  },
+  {
+    "sender": "account2",
+    "receiver": "account1",
+    "subject": "Touching base",
+    "message": "Hello,\n\nJust touching base to maintain our communication. Feel free to reply anytime.\n\nRegards,\nHetvi"
+  }
+]
 }

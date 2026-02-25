@@ -1,5 +1,10 @@
 {
-  "lastAction": "skipped",
-  "flowIndex": 7,
-  "timestamp": "2026-02-25T12:30:50.412Z"
+  "lastAction": "sent",
+  "flowIndex": 8,
+  "lastFlowSent": {
+    "sender": "account1",
+    "receiver": "account2",
+    "subject": "Appreciate your support"
+  },
+  "timestamp": "2026-02-25T13:51:22.150Z"
 }

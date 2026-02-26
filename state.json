@@ -1,5 +1,10 @@
 {
-  "lastAction": "skipped",
-  "flowIndex": 4,
-  "timestamp": "2026-02-26T10:50:38.016Z"
+  "lastAction": "sent",
+  "flowIndex": 5,
+  "lastFlowSent": {
+    "sender": "account2",
+    "receiver": "account1",
+    "subject": "Following up again"
+  },
+  "timestamp": "2026-02-26T11:30:15.340Z"
 }

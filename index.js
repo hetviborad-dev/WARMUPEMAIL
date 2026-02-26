@@ -1,3 +1,46 @@
+// Send a reply email (simulate replying to the last received message)
+async function sendReplyEmail() {
+  try {
+    // Load configuration
+    const config = loadConfig();
+    if (!config.accounts || config.accounts.length < 2) {
+      throw new Error('At least two accounts required for reply.');
+    }
+    // For demo: reply from account2 to account1
+    const senderAccount = config.accounts[1];
+    const receiverAccount = config.accounts[0];
+    const appPassword = process.env[senderAccount.passEnv];
+    if (!appPassword) {
+      throw new Error(`Environment variable ${senderAccount.passEnv} not set for account ${senderAccount.id}`);
+    }
+    const transporter = createTransporter(senderAccount.email, appPassword);
+    // Compose reply message (customize as needed)
+    const subject = 'Re: Quick follow-up on our conversation';
+    const text = 'Hi,\n\nThank you for your message. This is an automated reply as part of the warmup process.\n\nBest regards,\n' + (senderAccount.displayName || senderAccount.email.split('@')[0]);
+    const senderName = senderAccount.displayName || senderAccount.email.split('@')[0];
+    const mailOptions = {
+      from: `${senderName} <${senderAccount.email}>`,
+      to: receiverAccount.email,
+      subject: subject,
+      text: text
+    };
+    const result = await transporter.sendMail(mailOptions);
+    console.log(`[${new Date().toISOString()}] 🔁 Reply email sent successfully`);
+    console.log(`  From: ${senderName} <${senderAccount.email}>`);
+    console.log(`  To: ${receiverAccount.email}`);
+    console.log(`  Subject: ${subject}\n`);
+    return {
+      status: 'replied',
+      from: senderAccount.email,
+      to: receiverAccount.email,
+      subject: subject,
+      messageId: result.messageId
+    };
+  } catch (error) {
+    console.error(`[${new Date().toISOString()}] Error sending reply:`, error.message);
+    process.exit(1);
+  }
+}
 require('dotenv').config();
 const nodemailer = require('nodemailer');
 const fs = require('fs');
@@ -55,10 +98,12 @@ function saveState(state) {
   } catch (error) {
     console.error('Error saving state:', error.message);
   }
-}
-
-// Load configuration
-function loadConfig() {
+    sendWarmupEmail()
+      .then(() => sendReplyEmail())
+      .catch(error => {
+        console.error('Fatal error:', error);
+        process.exit(1);
+      });
   try {
     const configPath = path.join(__dirname, 'accounts.json');
     const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));

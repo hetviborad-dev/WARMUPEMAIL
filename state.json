@@ -1,10 +1,10 @@
 {
   "lastAction": "sent",
-  "flowIndex": 9,
+  "flowIndex": 0,
   "lastFlowSent": {
-    "sender": "account2",
-    "receiver": "account1",
-    "subject": "Touching base"
+    "sender": "account1",
+    "receiver": "account2",
+    "subject": "Quick follow-up on our conversation"
   },
-  "timestamp": "2026-02-26T03:42:36.429Z"
+  "timestamp": "2026-02-26T05:11:22.052Z"
 }
